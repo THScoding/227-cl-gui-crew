@@ -10,6 +10,17 @@ from tkinter.filedialog import asksaveasfilename
 def do_command():
     subprocess.call("ping localhost")
 
+# Save function.
+def mSave():
+  filename = asksaveasfilename(defaultextension='.txt',filetypes = (('Text files', '*.txt'),('Python files', '*.py *.pyw'),('All files', '*.*')))
+  if filename is None:
+    return
+  file = open (filename, mode = 'w')
+  text_to_save = command_textbox.get("1.0", tk.END)
+  
+  file.write(text_to_save)
+  file.close()
+
 root = tk.Tk()
 frame = tk.Frame(root)
 frame.pack()
@@ -18,6 +29,9 @@ frame.pack()
 # CODE TO ADD
 # Makes the command button pass it's name to a function using lambda
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"))
+ping_btn.pack()
+
+ping_btn = tk.Button(frame, text="Save", command=lambda:mSave("ping"))
 ping_btn.pack()
 
 # creates the frame with label for the text box
@@ -53,15 +67,5 @@ def do_command(command):
         for line in p.stdout:
             command_textbox.insert(tk.END,line)
             command_textbox.update()
-
-# Modify the do_command(command) function: 
-# to use the text box for input to the functions
-global command_textbox, url_entry
-
-    # If url_entry is blank, use localhost IP address 
-url_val = url_entry.get()
-if (len(url_val) == 0):
-    # url_val = "127.0.0.1"
-    url_val = "::1"
 
 root.mainloop()
