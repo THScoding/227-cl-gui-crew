@@ -70,7 +70,7 @@ def do_command(command):
 
 # Modify the do_command(command) function: 
 # to use the text box for input to the functions
-global command_textbox, url_entry
+global command_textbox 
 
     # If url_entry is blank, use localhost IP address 
 url_val = url_entry.get()
