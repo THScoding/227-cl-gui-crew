@@ -40,4 +40,18 @@ url_entry.pack(side=tk.LEFT)
 frame = tk.Frame(root,  bg="black") # change frame color
 frame.pack()
 
+# Modify the do_command function:
+# to use the new button as needed
+def do_command(command):
+    global command_textbox
+    
+    command_textbox.delete(1.0, tk.END)
+    command_textbox.insert(tk.END, command + " working....\n")
+    command_textbox.update()
+
+    with subprocess.Popen(command + ' ' + url_val, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
+        for line in p.stdout:
+            command_textbox.insert(tk.END,line)
+            command_textbox.update()
+
 root.mainloop()
