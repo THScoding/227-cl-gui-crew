@@ -7,8 +7,29 @@ import tkinter.scrolledtext as tksc
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfilename
 
-def do_command():
-    subprocess.call("ping localhost")
+# Modify the do_command function:
+# to use the new button as needed
+def do_command(command):
+    global command_textbox, url_entry
+    
+    # If url_entry is blank, use localhost IP address 
+    url_val = url_entry.get()
+    if (len(url_val) == 0):
+        # url_val = "127.0.0.1"
+        url_val = "::1"
+    
+    command_textbox.delete(1.0, tk.END)
+    command_textbox.insert(tk.END, command + " working....\n")
+    command_textbox.update()
+    
+    with subprocess.Popen(command + ' ' + url_val, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
+        for line in p.stdout:
+            command_textbox.insert(tk.END,line)
+            command_textbox.update()
+
+# Adds an output box to GUI.
+command_textbox = tksc.ScrolledText(frame, height=10, width=100)
+command_textbox.pack()
 
 # Save function.
 def mSave():
@@ -54,28 +75,5 @@ url_entry.pack(side=tk.LEFT)
 frame = tk.Frame(root,  bg="black") # change frame color
 frame.pack()
 
-# Modify the do_command function:
-# to use the new button as needed
-def do_command(command):
-    global command_textbox
-    
-    command_textbox.delete(1.0, tk.END)
-    command_textbox.insert(tk.END, command + " working....\n")
-    command_textbox.update()
-    
-    with subprocess.Popen(command + ' ' + url_val, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
-        for line in p.stdout:
-            command_textbox.insert(tk.END,line)
-            command_textbox.update()
-    
-# Modify the do_command(command) function: 
-# to use the text box for input to the functions
-global command_textbox 
-
-    # If url_entry is blank, use localhost IP address 
-url_val = url_entry.get()
-if (len(url_val) == 0):
-    # url_val = "127.0.0.1"
-    url_val = "::1"
 
 root.mainloop()
