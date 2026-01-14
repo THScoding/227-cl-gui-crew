@@ -7,6 +7,10 @@ import tkinter.scrolledtext as tksc
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfilename
 
+# Adds an output box to GUI.
+command_textbox = tksc.ScrolledText(frame, height=10, width=100)
+command_textbox.pack()
+
 # Modify the do_command function:
 # to use the new button as needed
 def do_command(command):
@@ -27,9 +31,7 @@ def do_command(command):
             command_textbox.insert(tk.END,line)
             command_textbox.update()
 
-# Adds an output box to GUI.
-command_textbox = tksc.ScrolledText(frame, height=10, width=100)
-command_textbox.pack()
+
 
 # Save function.
 def mSave():
