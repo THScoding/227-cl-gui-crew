@@ -62,12 +62,12 @@ def do_command(command):
     command_textbox.delete(1.0, tk.END)
     command_textbox.insert(tk.END, command + " working....\n")
     command_textbox.update()
-
+    
     with subprocess.Popen(command + ' ' + url_val, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
         for line in p.stdout:
             command_textbox.insert(tk.END,line)
             command_textbox.update()
-
+    
 # Modify the do_command(command) function: 
 # to use the text box for input to the functions
 global command_textbox 
