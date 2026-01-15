@@ -59,6 +59,9 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"))
 ping_btn.pack()
 
+ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"))
+ip_btn.pack()
+
 save_btn = tk.Button(frame, text="Save", command=open_save_window)
 save_btn.pack()
 
