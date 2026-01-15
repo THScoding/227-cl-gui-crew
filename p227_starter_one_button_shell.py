@@ -8,7 +8,7 @@ from tkinter import filedialog
 from tkinter.filedialog import asksaveasfilename
 
 # Adds an output box to GUI.
-command_textbox = tksc.ScrolledText(frame, height=10, width=100)
+command_textbox = tksc.ScrolledText(height=10, width=100)
 command_textbox.pack()
 
 # Modify the do_command function:
