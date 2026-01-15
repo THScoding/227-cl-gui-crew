@@ -30,8 +30,9 @@ def do_command(command):
 def open_save_window() :
     save_window = tk.Toplevel(root)
     save_window.title("save?")
-    save_window.geometry("100x200")
-    
+    save_window.geometry("200x200")
+    label = tk.Label(save_window, text="Are you sure you want to save?")
+    label.pack(pady=10)
     
 # Adds an output box to GUI.
 command_textbox = tksc.ScrolledText(height=10, width=100)
