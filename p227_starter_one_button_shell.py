@@ -28,11 +28,16 @@ def do_command(command):
             command_textbox.update()
 
 def open_save_window() :
+    var=tk.IntVar()
     def close_window() :
         save_window.destroy()
     save_window = tk.Toplevel(root)
     save_window.title("save?")
     save_window.geometry("200x200")
+    yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
+    yes.pack(pady=20)
+    no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
+    no.pack(pady = 30)
     label = tk.Label(save_window, text="Are you sure you want to save?")
     label.pack(pady=10)
     save2_btn = tk.Button(save_window, text="save", command=close_window)
