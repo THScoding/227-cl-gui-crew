@@ -32,6 +32,7 @@ def open_save_window() :
     save_window.title("save?")
     save_window.geometry("100x200")
     
+    
 # Adds an output box to GUI.
 command_textbox = tksc.ScrolledText(height=10, width=100)
 command_textbox.pack()
@@ -57,7 +58,7 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"))
 ping_btn.pack()
 
-save_btn = tk.Button(frame, text="Save", command=lambda:open_save_window)
+save_btn = tk.Button(frame, text="Save", command=open_save_window)
 save_btn.pack()
 
 # creates the frame with label for the text box
