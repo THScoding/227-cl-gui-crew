@@ -7,10 +7,6 @@ import tkinter.scrolledtext as tksc
 from tkinter import filedialog
 from tkinter.filedialog import asksaveasfilename
 
-# Adds an output box to GUI.
-command_textbox = tksc.ScrolledText(height=10, width=100)
-command_textbox.pack()
-
 # Modify the do_command function:
 # to use the new button as needed
 def do_command(command):
@@ -31,7 +27,14 @@ def do_command(command):
             command_textbox.insert(tk.END,line)
             command_textbox.update()
 
-
+def open_save_window() :
+    save_window = tk.Toplevel(root)
+    save_window.title("save?")
+    save_window.geometry("100x200")
+    
+# Adds an output box to GUI.
+command_textbox = tksc.ScrolledText(height=10, width=100)
+command_textbox.pack()
 
 # Save function.
 def mSave():
@@ -54,8 +57,8 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"))
 ping_btn.pack()
 
-ping_btn = tk.Button(frame, text="Save", command=lambda:mSave("ping"))
-ping_btn.pack()
+save_btn = tk.Button(frame, text="Save", command=lambda:open_save_window)
+save_btn.pack()
 
 # creates the frame with label for the text box
 frame_URL = tk.Frame(root, pady=10,  bg="black") # change frame color
