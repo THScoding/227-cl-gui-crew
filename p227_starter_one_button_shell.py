@@ -34,15 +34,19 @@ def open_save_window() :
         save_window.destroy()
     save_window = tk.Toplevel(root)
     save_window.title("save?")
-    save_window.geometry("200x200")
+    save_window.geometry("500x800")
     yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
-    yes.pack(pady=20)
+    yes.pack(pady=30)
     no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
-    no.pack(pady = 30)
-    label = tk.Label(save_window, text="Are you sure you want to save?")
-    label.pack(pady=10)
+    no.pack(pady = 40)
+    label = tk.Label(save_window, text="Are you sure you want to save?\n It will overwrite other files saved from this program.")
+    label.pack(pady=20)
     save2_btn = tk.Button(save_window, text="save", command=close_window)
     save2_btn.pack(pady=50)
+    choices = ["Ping", "IP"]
+    spinval = tk.StringVar(value=choices[0])
+    command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval)
+    command_line.pack(pady=40)
     
 # Adds an output box to GUI.
 command_textbox = tksc.ScrolledText(height=10, width=100)
@@ -69,7 +73,7 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("comic sans", 12), bd=5, relief="ridge", cursor="heart")
 ping_btn.pack()
 
-ip_btn = tk.Button(frame, text="Find IP Address", command=lambda:do_command("ipconfig"), cursor="hand1", relief="ridge", bd=4)
+ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"))
 ip_btn.pack()
 
 save_btn = tk.Button(frame, text="Save", command=open_save_window, cursor="hand2", relief="ridge", bd=3)
