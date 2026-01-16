@@ -17,7 +17,8 @@ def do_command(command):
     if (len(url_val) == 0):
         # url_val = "127.0.0.1"
         url_val = "::1"
-    
+        
+        
     command_textbox.delete(1.0, tk.END)
     command_textbox.insert(tk.END, command + " working....\n")
     command_textbox.update()
@@ -68,7 +69,7 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("comic sans", 12), bd=5, relief="ridge", cursor="heart")
 ping_btn.pack()
 
-ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"), cursor="hand1", relief="ridge", bd=4)
+ip_btn = tk.Button(frame, text="Find IP Address", command=lambda:do_command("ipconfig"), cursor="hand1", relief="ridge", bd=4)
 ip_btn.pack()
 
 save_btn = tk.Button(frame, text="Save", command=open_save_window, cursor="hand2", relief="ridge", bd=3)
