@@ -35,18 +35,18 @@ def open_save_window() :
     save_window = tk.Toplevel(root)
     save_window.title("save?")
     save_window.geometry("500x800")
-    yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
-    yes.pack(pady=30)
-    no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
-    no.pack(pady = 40)
     label = tk.Label(save_window, text="Are you sure you want to save?\n It will overwrite other files saved from this program.")
-    label.pack(pady=20)
-    save2_btn = tk.Button(save_window, text="save", command=close_window)
-    save2_btn.pack(pady=50)
-    choices = ["Ping", "IP"]
+    label.pack(pady=10)
+    yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
+    yes.pack()
+    no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
+    no.pack()
+    choices = ["Ping", "IP", "both"]
     spinval = tk.StringVar(value=choices[0])
     command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval)
-    command_line.pack(pady=40)
+    command_line.pack()
+    save2_btn = tk.Button(save_window, text="save", command=close_window)
+    save2_btn.pack()
     
 # Adds an output box to GUI.
 command_textbox = tksc.ScrolledText(height=10, width=100)
