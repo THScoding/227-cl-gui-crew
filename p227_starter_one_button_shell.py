@@ -65,13 +65,13 @@ frame.pack()
 # set up button to run the do_command function
 # CODE TO ADD
 # Makes the command button pass it's name to a function using lambda
-ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"))
+ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("comic sans", 12), bd=5, relief="ridge", cursor="heart")
 ping_btn.pack()
 
-ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"))
+ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"), cursor="hand1", relief="ridge", bd=4)
 ip_btn.pack()
 
-save_btn = tk.Button(frame, text="Save", command=open_save_window)
+save_btn = tk.Button(frame, text="Save", command=open_save_window, cursor="hand2", relief="ridge", bd=3)
 save_btn.pack()
 
 # creates the frame with label for the text box
