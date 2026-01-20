@@ -35,17 +35,18 @@ def open_save_window() :
     save_window = tk.Toplevel(root)
     save_window.title("save?")
     save_window.geometry("500x800")
-    label = tk.Label(save_window, text="Are you sure you want to save?\n It will overwrite other files saved from this program.")
+    save_window.configure(bg="lightblue")
+    label = tk.Label(save_window, text="Are you sure you want to save?\n It will overwrite other files saved from this program.", font=("times", 12))
     label.pack()
-    yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
+    yes = tk.Radiobutton(save_window,  text="yes", font=("times", 12), variable=var, value=1)
     yes.pack()
-    no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
+    no = tk.Radiobutton(save_window, text="no", font=("times", 12), variable=var, value=2)
     no.pack()
-    label2 = tk.Label(save_window, text="Which command did you use?\n Choose one below")
+    label2 = tk.Label(save_window, text="Which command did you use?\n Choose one below", font=("times", 12))
     label2.pack()
     choices = ["Ping", "Nslookup", "Both"]
     spinval = tk.StringVar(value=choices[0])
-    command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval)
+    command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval, font=("times", 12))
     command_line.pack()
     save2_btn = tk.Button(save_window, text="save", command=close_window)
     save2_btn.pack()
@@ -72,33 +73,33 @@ frame.pack()
 # set up button to run the do_command function
 # CODE TO ADD
 # Makes the command button pass it's name to a function using lambda
-ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("comic sans", 12), bd=5, relief="ridge", cursor="heart")
+ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("times", 12), bd=5, relief="ridge", cursor="heart")
 ping_btn.pack()
 
-ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("nslookup"))
+ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("nslookup"), compound="center", font=("times", 12))
 ip_btn.pack()
 
-save_btn = tk.Button(frame, text="Save", command=open_save_window, cursor="hand2", relief="ridge", bd=3)
+save_btn = tk.Button(frame, text="Save", command=open_save_window, compound="center", font=("times", 12), cursor="hand2", relief="ridge", bd=3)
 save_btn.pack()
 
 # creates the frame with label for the text box
-frame_URL = tk.Frame(root, pady=10,  bg="black") # change frame color
+frame_URL = tk.Frame(root, pady=10,  bg="lightblue") # change frame color
 frame_URL.pack()
 
 # decorative label
 url_label = tk.Label(frame_URL, text="Enter a URL of interest: ", 
     compound="center",
-    font=("comic sans", 14),
+    font=("times", 14),
     bd=0, 
     relief=tk.FLAT, 
     cursor="heart",
     fg="mediumpurple3",
-    bg="black")
+    bg="lightblue")
 url_label.pack(side=tk.LEFT)
-url_entry = tk.Entry(frame_URL,  font=("comic sans", 14)) # change font
+url_entry = tk.Entry(frame_URL,  font=("times", 14)) # change font
 url_entry.pack(side=tk.LEFT)
 
-frame = tk.Frame(root,  bg="black") # change frame color
+frame = tk.Frame(root,  bg="lightblue") # change frame color
 frame.pack()
 
 
