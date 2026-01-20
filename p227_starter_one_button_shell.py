@@ -36,11 +36,13 @@ def open_save_window() :
     save_window.title("save?")
     save_window.geometry("500x800")
     label = tk.Label(save_window, text="Are you sure you want to save?\n It will overwrite other files saved from this program.")
-    label.pack(pady=10)
+    label.pack()
     yes = tk.Radiobutton(save_window,  text="yes", variable=var, value=1)
     yes.pack()
     no = tk.Radiobutton(save_window, text="no", variable=var, value=2)
     no.pack()
+    label2 = tk.Label(save_window, text="Which command did you use?\n Choose one below")
+    label2.pack()
     choices = ["Ping", "IP", "both"]
     spinval = tk.StringVar(value=choices[0])
     command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval)
@@ -73,7 +75,7 @@ frame.pack()
 ping_btn = tk.Button(frame, text="Check to see if a URL is up and active", command=lambda:do_command("ping"), compound="center", font=("comic sans", 12), bd=5, relief="ridge", cursor="heart")
 ping_btn.pack()
 
-ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("get_ip_adress"))
+ip_btn = tk.Button(frame, text="Find IP Adress", command=lambda:do_command("nslookup"))
 ip_btn.pack()
 
 save_btn = tk.Button(frame, text="Save", command=open_save_window, cursor="hand2", relief="ridge", bd=3)
