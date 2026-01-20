@@ -43,7 +43,7 @@ def open_save_window() :
     no.pack()
     label2 = tk.Label(save_window, text="Which command did you use?\n Choose one below")
     label2.pack()
-    choices = ["Ping", "IP", "both"]
+    choices = ["Ping", "Nslookup", "Both"]
     spinval = tk.StringVar(value=choices[0])
     command_line = tk.Spinbox(save_window, values=choices, textvariable=spinval)
     command_line.pack()
